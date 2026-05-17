@@ -1,0 +1,14 @@
+com.spotify.Client
+io.github.flattool.Warehouse
+com.github.tchx84.Flatseal
+io.missioncenter.MissionCenter
+org.gimp.GIMP
+org.fedoraproject.MediaWriter
+io.mpv.Mpv
+org.qbittorrent.qBittorrent
+com.obsproject.Studio
+com.obsproject.Studio.Plugin.OBSVkCapture
+com.obsproject.Studio.Plugin.WaylandHotkeys
+com.obsproject.Studio.Plugin.TextPthread
+it.mijorus.gearlever
+com.mattjakeman.ExtensionManager

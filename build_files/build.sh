@@ -4,6 +4,10 @@ set -ouex pipefail
 
 /ctx/setup-repos.sh
 /ctx/setup-packages.sh
+
+echo "=== Setting up my just commands ==="
+echo "import \"/usr/share/bazzite-hoxi/bazzite-hoxi.just\"" >>/usr/share/ublue-os/justfile
+
 /ctx/cleanup.sh
 
 ### Install packages

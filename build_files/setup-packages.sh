@@ -33,7 +33,13 @@ dnf5 install -y \
     jetbrains-mono-fonts-all \
     powerline-fonts \
     rsms-inter-vf-fonts \
-    zsh
+    zsh \
+    fzf \
+    aria2 \
+    neovim \
+    openrgb \
+    jetbrains-mono-fonts \
+    nerd-fonts
 
 
 # Install packages from Terra

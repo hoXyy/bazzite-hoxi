@@ -29,3 +29,6 @@ dnf5 config-manager setopt vscode.gpgcheck=0
 # Add Docker repo
 dnf config-manager addrepo --from-repofile="https://download.docker.com/linux/fedora/docker-ce.repo"
 dnf5 config-manager setopt docker-ce-stable.enabled=0
+
+# Enable Nerd Fonts COPR
+dnf5 -y copr enable che/nerd-fonts
