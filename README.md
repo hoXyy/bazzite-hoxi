@@ -10,4 +10,4 @@ More info here: https://bugzilla.redhat.com/show_bug.cgi?id=2263643
 
 # Images
 
-This repo only builds an image based on Bazzite KDE with Nvidia open drivers. 
+This repo builds 2 images, one with KDE and one with GNOME. Both are based on Bazzite's NVIDIA images. 
