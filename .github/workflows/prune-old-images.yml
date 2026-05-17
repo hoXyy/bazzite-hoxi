@@ -14,16 +14,12 @@ on:
 jobs:
     prune-old-images:
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                image-name:
-                    - 'bazzite-hoxi-gnome'
-                    - 'bazzite-hoxi'
 
         steps:
             - uses: smartsquaregmbh/delete-old-packages@v1.0.0
               with:
                 type: 'container'
+                user: hoXyy
                 names: |
                     bazzite-hoxi-gnome
                     bazzite-hoxi
