@@ -44,7 +44,7 @@ if [ -f /etc/yum.repos.d/terra.repo ]; then
         ghostty-terminfo \
         ghostty-shell-integration
 
-    if [ "$VARIANT" = "gnome"]; then
+    if [ "$VARIANT" = "gnome" ]; then
         dnf5 install --from-repo=terra --setopt=install_weak_deps=False -y \
         ghostty-nautilus
     fi
