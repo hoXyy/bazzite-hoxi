@@ -1,0 +1,31 @@
+name: Prune old images
+
+on:
+    schedule:
+        - cron: '0 0 * * 0'
+    workflow_dispatch: 
+        inputs:
+            dry_run:
+                description: Dry run (don't delete images)
+                required: true
+                type: boolean
+                default: false
+
+jobs:
+    prune-old-images:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                image-name:
+                    - 'bazzite-hoxi-gnome'
+                    - 'bazzite-hoxi'
+
+        steps:
+            - uses: smartsquaregmbh/delete-old-packages@v1.0.0
+              with:
+                type: 'container'
+                names: |
+                    bazzite-hoxi-gnome
+                    bazzite-hoxi
+                keep: 5
+                dry-run: ${{ inputs.dry_run }}
