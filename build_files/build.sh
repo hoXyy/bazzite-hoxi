@@ -4,6 +4,7 @@ set -ouex pipefail
 
 /ctx/setup-repos.sh
 /ctx/setup-packages.sh
+/ctx/cleanup.sh
 
 ### Install packages
 
