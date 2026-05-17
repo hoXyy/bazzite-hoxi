@@ -1,5 +1,7 @@
 export image_name := env("IMAGE_NAME", "bazzite-hoxi") # output image name, usually same as repo name, change as needed
 export default_tag := env("DEFAULT_TAG", "latest")
+export base_image := env("BASE_IMAGE", "bazzite-nvidia-open")
+export variant := env("IMAGE_VARIANT", "kde")
 export bib_image := env("BIB_IMAGE", "quay.io/centos-bootc/bootc-image-builder:latest")
 
 alias build-vm := build-qcow2
@@ -71,28 +73,33 @@ sudoif command *args:
 # This Justfile recipe builds a container image using Podman.
 #
 # Arguments:
+#   $base_image - base image to use (default: $base_image)
+#   $variant - desktop variant to use (default: $variant)
 #   $target_image - The tag you want to apply to the image (default: $image_name).
 #   $tag - The tag for the image (default: $default_tag).
 #
 # The script constructs the version string using the tag and the current date.
 # If the git working directory is clean, it also includes the short SHA of the current HEAD.
 #
-# just build $target_image $tag
-#
-# Example usage:
-#   just build aurora lts
-#
-# This will build an image 'aurora:lts' with DX and GDX enabled.
+# just build $base_image $variant $target_image $tag
 #
 
 # Build the image using the specified parameters
-build $target_image=image_name $tag=default_tag:
+build $base_image=base_image $variant=variant $target_image=image_name $tag=default_tag:
     #!/usr/bin/env bash
 
     BUILD_ARGS=()
     if [[ -z "$(git status -s)" ]]; then
         BUILD_ARGS+=("--build-arg" "SHA_HEAD_SHORT=$(git rev-parse --short HEAD)")
     fi
+    BUILD_ARGS+=("--build-arg" "BASE_IMAGE={{base_image}}")
+    BUILD_ARGS+=("--build-arg" "VARIANT={{variant}}")
+
+    if [ "$variant" = "gnome" ]; then
+        target_image="bazzite-hoxi-gnome"
+    fi
+
+    echo "${BUILD_ARGS[@]}"
 
     podman build \
         "${BUILD_ARGS[@]}" \

@@ -14,8 +14,8 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_DESC: "My Customized Universal Blue Image"
-  IMAGE_KEYWORDS: "bootc,ublue,universal-blue"
+  IMAGE_DESC: "hoxi's customized Bazzite image"
+  IMAGE_KEYWORDS: "bootc,ublue,universal-blue,bazzite"
   IMAGE_LOGO_URL: "https://avatars.githubusercontent.com/u/120078124?s=200&v=4"  # Put your own image here for a fancy profile on https://artifacthub.io/!
   IMAGE_NAME: "${{ github.event.repository.name }}"  # output image name, usually same as repo name
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"  # do not edit
@@ -34,6 +34,16 @@ jobs:
       contents: read
       packages: write
       id-token: write
+
+    strategy:
+      matrix:
+        include:
+          - base_image: bazzite-nvidia-open
+            variant: kde
+            image_suffix: ""
+          - base_image: bazzite-gnome-nvidia-open
+            variant: gnome
+            image_suffix: "-gnome"
 
     steps:
       - name: Prepare environment
@@ -100,9 +110,12 @@ jobs:
             ./Containerfile
           # Postfix image name with -custom to make it a little more descriptive
           # Syntax: https://docs.github.com/en/actions/learn-github-actions/expressions#format
-          image: ${{ env.IMAGE_NAME }}
+          image: ${{ env.IMAGE_NAME }}${{ matrix.image_suffix }}
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
+          build-args: |
+            BASE_IMAGE=${{matrix.base_image}}
+            VARIANT=${{matrix.variant}}
           oci: false
 
       # Rechunk is a script that we use on Universal Blue to make sure there isnt a single huge layer when your image gets published.
