@@ -26,7 +26,7 @@ dnf5 install -y --enable-repo="docker-ce-stable" \
     docker-buildx-plugin \
     docker-compose-plugin 
 
-# Install packages
+# Install other packages
 dnf5 install -y \
     btop \
     source-foundry-hack-fonts \
@@ -35,11 +35,18 @@ dnf5 install -y \
     rsms-inter-vf-fonts \
     zsh
 
+
+# Install packages from Terra
 if [ -f /etc/yum.repos.d/terra.repo ]; then
-dnf5 install --from-repo=terra --setopt=install_weak_deps=False -y \
-    ghostty \
-    ghostty-zsh-completion \
-    ghostty-terminfo \
-    ghostty-shell-integration
+    dnf5 install --from-repo=terra --setopt=install_weak_deps=False -y \
+        ghostty \
+        ghostty-zsh-completion \
+        ghostty-terminfo \
+        ghostty-shell-integration
+
+    if [ "$VARIANT" = "gnome"]; then
+        dnf5 install --from-repo=terra --setopt=install_weak_deps=False -y \
+        ghostty-nautilus
+    fi
 fi
 
