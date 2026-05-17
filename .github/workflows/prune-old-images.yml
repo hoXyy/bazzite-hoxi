@@ -28,4 +28,4 @@ jobs:
                     bazzite-hoxi-gnome
                     bazzite-hoxi
                 keep: 5
-                dry-run: ${{ inputs.dry_run }}
+                dry-run: ${{ github.event.inputs.dry_run || false }}
