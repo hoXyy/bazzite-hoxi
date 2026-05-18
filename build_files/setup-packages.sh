@@ -13,7 +13,6 @@ dnf5 install -y ./*.rpm --allow-downgrade
 dnf5 remove -y koji
 rm ./*.rpm
 
-
 # Install VSCode
 dnf5 install --nogpgcheck --enable-repo="vscode" -y \
     code

@@ -8,6 +8,9 @@ set -ouex pipefail
 echo "=== Setting up my just commands ==="
 echo "import \"/usr/share/bazzite-hoxi/bazzite-hoxi.just\"" >>/usr/share/ublue-os/justfile
 
+# refresh font cache
+fc-cache -f
+
 /ctx/cleanup.sh
 
 ### Install packages
