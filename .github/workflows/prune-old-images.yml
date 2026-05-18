@@ -25,3 +25,4 @@ jobs:
                     bazzite-hoxi
                 keep: 5
                 dry-run: ${{ github.event.inputs.dry_run || false }}
+                token: ${{ secrets.IMAGE_PRUNE_TOKEN }}
