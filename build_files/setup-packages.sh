@@ -65,7 +65,8 @@ if [ -f /etc/yum.repos.d/terra.repo ]; then
         ghostty-terminfo \
         ghostty-shell-integration \
         asusctl \
-        asusctl-rog-gui
+        asusctl-rog-gui \
+        discord
 
     if [ "$VARIANT" = "gnome" ]; then
         dnf5 install --from-repo=terra --setopt=install_weak_deps=False -y \
