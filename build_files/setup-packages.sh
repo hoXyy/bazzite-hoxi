@@ -73,3 +73,4 @@ if [ -f /etc/yum.repos.d/terra.repo ]; then
     fi
 fi
 
+/ctx/setup-1password.sh
