@@ -23,6 +23,6 @@ jobs:
                 names: |
                     bazzite-hoxi-gnome
                     bazzite-hoxi
-                keep: 5
+                keep: 20
                 dry-run: ${{ github.event.inputs.dry_run || false }}
                 token: ${{ secrets.IMAGE_PRUNE_TOKEN }}
