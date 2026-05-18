@@ -10,4 +10,5 @@ More info about the issue here: https://bugzilla.redhat.com/show_bug.cgi?id=2263
 
 # Images
 
-This repo builds 2 images, one with KDE and one with GNOME. Both are based on Bazzite's NVIDIA images. 
+This repo builds 2 images, one with KDE and one with GNOME. Both are based on Bazzite's NVIDIA images.
+I mostly use the KDE image, so no promises on how good the GNOME image is.
