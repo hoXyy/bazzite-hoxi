@@ -11,6 +11,8 @@ echo "import \"/usr/share/bazzite-hoxi/bazzite-hoxi.just\"" >>/usr/share/ublue-o
 # refresh font cache
 fc-cache -f
 
+/ctx/setup-services.sh
+
 /ctx/cleanup.sh
 
 ### Install packages

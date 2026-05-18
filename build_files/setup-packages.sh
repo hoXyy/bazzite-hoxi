@@ -55,7 +55,21 @@ dnf5 install -y \
     aria2 \
     neovim \
     openrgb \
-    firefox
+    firefox \
+    wireguard-tools
+
+# Install virtualization stuff
+dnf5 --setopt=install_weak_deps=False install -y \
+    rocm-hip \
+    rocm-opencl \
+    rocm-clinfo \
+    rocm-smi \
+    qemu \
+    libvirt \
+    qemu-kvm \
+    virt-manager \
+    edk2-ovmf \
+    guestfs-tools
 
 # Install packages from Terra
 if [ -f /etc/yum.repos.d/terra.repo ]; then
