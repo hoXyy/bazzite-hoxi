@@ -11,6 +11,12 @@ rm -rf /boot/*
 rm -rf /var/lib/dnf
 rm -rf /run/dnf
 
+# Clean temp files
+rm -rf /tmp/*
+
 # Disable COPRs
 dnf5 -y copr disable che/nerd-fonts
 dnf5 -y copr disable tarulia/obs-studio-plugins
+
+# Clean package manager cache
+dnf5 clean all
