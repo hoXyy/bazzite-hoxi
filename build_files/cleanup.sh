@@ -8,9 +8,8 @@ echo "=== CLEANUP ==="
 rm -rf /boot/*
 
 # Clean up bootc lint warnings
+rm -rf /var/lib/dnf
 rm -rf /run/dnf
-rm -rf /var
-mkdir -p /var
 
 # Clean temp files
 rm -rf /tmp/*
