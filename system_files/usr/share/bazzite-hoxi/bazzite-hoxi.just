@@ -1,5 +1,5 @@
 # Install all curated apps
-bazzite-hoxi-install: bazzite-hoxi-install-flatpaks
+bazzite-hoxi-install: bazzite-hoxi-install-flatpaks bazzite-hoxi-install-brews
 
 # Install only Flatpaks
 bazzite-hoxi-install-flatpaks:
@@ -9,3 +9,12 @@ bazzite-hoxi-install-flatpaks:
     echo "Installing Flatpaks..."
     xargs -a <(curl --retry 3 -sL https://raw.githubusercontent.com/hoXyy/bazzite-hoxi/main/repo_files/flatpaks) flatpak --system -y install
     echo "Flatpaks installation complete."
+
+# Install only Homebrews
+bazzite-hoxi-install-brews:
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    echo "Installing Homebrews..."
+    xargs -a <(curl --retry 3 -sL https://raw.githubusercontent.com/hoXyy/bazzite-hoxi/main/repo_files/brews) brew install
+    echo "Homebrews installation complete."
