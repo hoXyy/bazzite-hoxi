@@ -32,3 +32,6 @@ dnf5 config-manager setopt docker-ce-stable.enabled=0
 
 # Enable Nerd Fonts COPR
 dnf5 -y copr enable che/nerd-fonts
+
+# Enable OBS Plugins COPR
+dnf5 -y copr enable tarulia/obs-studio-plugins

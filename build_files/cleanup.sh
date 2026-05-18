@@ -13,3 +13,4 @@ rm -rf /run/dnf
 
 # Disable COPRs
 dnf5 -y copr disable che/nerd-fonts
+dnf5 -y copr disable tarulia/obs-studio-plugins

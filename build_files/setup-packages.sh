@@ -23,23 +23,38 @@ dnf5 install -y --enable-repo="docker-ce-stable" \
     docker-ce-cli \
     containerd.io \
     docker-buildx-plugin \
-    docker-compose-plugin 
+    docker-compose-plugin
 
-# Install other packages
+# Install fonts
 dnf5 install -y \
-    btop \
     source-foundry-hack-fonts \
     jetbrains-mono-fonts-all \
     powerline-fonts \
     rsms-inter-vf-fonts \
+    jetbrains-mono-fonts \
+    nerd-fonts \
+    google-roboto-fonts \
+    google-roboto-mono-fonts \
+    google-roboto-slab-fonts
+
+# Install OBS and plugins
+dnf5 install -y \
+    obs-studio \
+    obs-studio-plugin-vkcapture \
+    obs-studio-plugin-pwvideo \
+    obs-studio-plugin-pipewire-audio-capture \
+    obs-studio-plugin-wayland-hotkeys \
+    obs-studio-plugin-text-pthread \
+    obs-studio-plugin-tuna
+
+# Install other packages
+dnf5 install -y \
+    btop \
     zsh \
     fzf \
     aria2 \
     neovim \
     openrgb \
-    jetbrains-mono-fonts \
-    nerd-fonts
-
 
 # Install packages from Terra
 if [ -f /etc/yum.repos.d/terra.repo ]; then
