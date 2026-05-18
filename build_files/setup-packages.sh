@@ -54,7 +54,7 @@ dnf5 install -y \
     fzf \
     aria2 \
     neovim \
-    openrgb \
+    openrgb
 
 # Install packages from Terra
 if [ -f /etc/yum.repos.d/terra.repo ]; then
