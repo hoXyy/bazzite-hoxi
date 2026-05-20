@@ -1,3 +1,6 @@
+# Run all setup scripts
+bazzite-hoxi-setup: bazzite-hoxi-install bazzite-hoxi-setup-git
+
 # Install all curated apps
 bazzite-hoxi-install: bazzite-hoxi-install-flatpaks bazzite-hoxi-install-brews
 
@@ -18,3 +21,12 @@ bazzite-hoxi-install-brews:
     echo "Installing Homebrews..."
     xargs -a <(curl --retry 3 -sL https://raw.githubusercontent.com/hoXyy/bazzite-hoxi/main/repo_files/brews) brew install
     echo "Homebrews installation complete."
+
+# Setup Git for my use
+bazzite-hoxi-setup-git:
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    echo "Setting up Git..."
+    git config --global user.email "github@hoxi.me"
+    git config --global user.name "Paweł Zatoka"
